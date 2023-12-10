@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./csssty.css">
+    <title>Job Passcard</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://www.jobpasscard.com/static/images/new_Jobpasscard/jobpasscard_logo.png" alt="">
+            <p class="font"><b>Job</b></p>
+            <p class="font">Passcard</p>
+        </div>
+        <div class="function">
+            <a href="">
+                <p class="font"><b>ABOUT US</b></p>
+            </a>
+            <a href="">
+                <p class="font"><b>PASSCARD</b></p>
+            </a>
+            <a href="">
+                <p class="font"><b>PROFILE</b></p>
+            </a>
+        </div>
+        <div class="login">
+            <img class="P1" src="./magnifying-glass.png" alt="">
+            <img class="P2" src="https://www.jobpasscard.com/static/images/new_Jobpasscard/cart-icon.png" alt="">
+            <a href="">
+                <p class="font"><b>LOGIN</b></p>
+            </a>
+            <div class="line-break"></div>
+            <a href="">
+                <p class="font"><b>SIGN UP</b></p>
+            </a>
+        </div>
+    </header>
+    <div class="area-top">
+        <p class="font"><b>My Cart</b></p>
+    </div>
+    <div class="area">
+        <div class="area-left">
+            <div class="Docs">
+                <div class="bin"><img src="./bin.png" alt=""></div>
+                <div class="file1">
+                    <div class="file"><img src="./fileblue.png" alt=""></div>
+                    <p class="font"><b class="P1">Google Docs</b></p>
+                    <p class="font">Used for business</p>
+                </div>
+                <div class="Google">
+                    <p class="font">Google Docs</p>
+                    <div class="nav">
+                        <div class="status-circle-container">
+                            <div class="status-circle circle-level-1"></div>
+                            <div class="status-circle circle-level-2"></div>
+                            <div class="status-circle circle-level-3"></div>
+                        </div>
+                        <select>
+                            <option><b>LV 1-3</b></option>
+                            <option><b>LV 2-3</b></option>
+                            <option><b>LV 3-3</b></option>
+                        </select>
+                    </div>
+                    <div class="THB">
+                        <p>THB 150</p>
+                    </div>
+                </div>
+            </div>
+            <div class="Slides">
+                <div class="bin"><img src="./bin.png" alt=""></div>
+                <div class="file2">
+                    <div class="file"><img src="./file.png" alt=""></div>
+                    <p class="font"><b class="P1">Google Docs</b></p>
+                    <p class="font">Used for business</p>
+                </div>
+                <div class="Google">
+                    <p class="font">Google Slides</p>
+                    <div class="nav2">
+                        <div class="status-circle-container2">
+                            <div class="status-circle2 circle-level2-1"></div>
+                            <div class="status-circle2 circle-level2-2"></div>
+                            <div class="status-circle2 circle-level2-3"></div>
+                            <div class="status-circle2 circle-level2-4"></div>
+                        </div>
+                        <select>
+                            <option><b>LV 1/4</b></option>
+                            <option><b>LV 2/4</b></option>
+                            <option><b>LV 3/4</b></option>
+                            <option><b>LV 4/4</b></option>
+                        </select>
+                    </div>
+                    <div class="THB">
+                        <p>THB 150</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="area-right">
+            <div class="right-area">
+                <div class="right0">
+                    <div class="font">
+                        <p>Order Info</p>
+                    </div>
+                </div>
+                <div class="right1">
+                    <div class="font">
+                        <p>Subtotal</p>
+                    </div>
+                    <div class="THB">
+                        <b>THB 300</b>
+                    </div>
+                </div>
+                <div class="right2">
+                    <img src="./coupon.png" alt="">
+                    <input type="text" value="Promotion code" id="promoInput">
+                    <button class="apply-button" onclick="applyPromotion()">APPLY</button>
+                </div>
+                <hr>
+                <div class="right3">
+                    <div class="font">
+                        <p>Total paymemt</p>
+                    </div>
+                    <div class="THB"><b>THB 300</b></div>
+                </div>
+                <div class="right4">
+                    <button class="apply-button2"><b>LOG IN TO CHECKOUT</b></button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const selectElement = document.querySelector('.nav select');
+        const statusCircles = document.querySelectorAll('.status-circle');
+
+        selectElement.addEventListener('change', function () {
+            const selectedOption = selectElement.options[selectElement.selectedIndex];
+            resetCircleColors();
+
+            if (selectedOption.textContent === 'LV 1-3') {
+                changeCircleColor(statusCircles[0], 'circle-level-1');
+            } else if (selectedOption.textContent === 'LV 2-3') {
+                changeCircleColor(statusCircles[0], 'circle-level-1');
+                changeCircleColor(statusCircles[1], 'circle-level-2');
+            } else if (selectedOption.textContent === 'LV 3-3') {
+                changeCircleColor(statusCircles[2], 'circle-level-3');
+                changeCircleColor(statusCircles[0], 'circle-level-1');
+                changeCircleColor(statusCircles[1], 'circle-level-2');
+            }
+        });
+
+        function resetCircleColors() {
+            statusCircles.forEach(circle => {
+                circle.style.backgroundColor = 'rgba(143, 140, 140, 0.2)';
+            });
+        }
+
+        function changeCircleColor(circle, className) {
+            circle.style.backgroundColor = getColorForClass(className);
+        }
+
+        function getColorForClass(className) {
+            switch (className) {
+                case 'circle-level-1':
+                    return '#33FF99';
+                case 'circle-level-2':
+                    return '#33FF99';
+                case 'circle-level-3':
+                    return '#33FF99';
+                default:
+                    return 'rgba(143, 140, 140, 0.2)';
+            }
+        }
+        const selectElement2 = document.querySelector('.nav2 select');
+        const statusCircles2 = document.querySelectorAll('.status-circle2');
+
+        selectElement2.addEventListener('change', function () {
+            const selectedOption = selectElement2.options[selectElement2.selectedIndex];
+            resetCircleColors2();
+
+            if (selectedOption.textContent === 'LV 1/4') {
+                changeCircleColor2(statusCircles2[0], 'circle-level2-1');
+            } else if (selectedOption.textContent === 'LV 2/4') {
+                changeCircleColor2(statusCircles2[0], 'circle-level2-1');
+                changeCircleColor2(statusCircles2[1], 'circle-level2-2');
+            } else if (selectedOption.textContent === 'LV 3/4') {
+                changeCircleColor2(statusCircles2[2], 'circle-level2-3');
+                changeCircleColor2(statusCircles2[0], 'circle-level2-1');
+                changeCircleColor2(statusCircles2[1], 'circle-level2-2');
+            } else if (selectedOption.textContent === 'LV 4/4') {
+                changeCircleColor2(statusCircles2[0], 'circle-level2-1');
+                changeCircleColor2(statusCircles2[1], 'circle-level2-2');
+                changeCircleColor2(statusCircles2[2], 'circle-level2-3');
+                changeCircleColor2(statusCircles2[3], 'circle-level2-4');
+            }
+        });
+
+        function resetCircleColors2() {
+            statusCircles2.forEach(circle => {
+                circle.style.backgroundColor = 'rgba(143, 140, 140, 0.2)';
+            });
+        }
+
+        function changeCircleColor2(circle, className) {
+            circle.style.backgroundColor = getColorForClass2(className);
+        }
+
+        function getColorForClass2(className) {
+            switch (className) {
+                case 'circle-level2-1':
+                    return '#33FF99';
+                case 'circle-level2-2':
+                    return '#33FF99';
+                case 'circle-level2-3':
+                    return '#33FF99';
+                case 'circle-level2-4':
+                    return '#33FF99';
+                default:
+                    return 'rgba(143, 140, 140, 0.2)';
+            }
+        }
+    });
+</script>
+<script>
+    function applyPromotion() {
+        alert('5555กดดูอะไร ยังไม่มีข้อมูล!!!!');
+    }
+    document.getElementById('promoInput').addEventListener('focus', function () {
+        this.value = '';
+        this.classList.add('has-value');
+    });
+    document.getElementById('promoInput').addEventListener('blur', function () {
+        if (this.value === '') {
+            this.value = 'Promotion code';
+            this.classList.remove('has-value');
+        }
+    });
+</script>
